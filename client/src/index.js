@@ -13,6 +13,7 @@ import './index.css';
 import App from './components/App';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
+import withSession from './components/withSession';
 
 const client = new ApolloClient({
     uri: 'http://localhost:4444/graphql',
@@ -34,20 +35,22 @@ const client = new ApolloClient({
     }
 });
 
-const Root = () => (
+const Root = ({ refetch }) => (
     <Router>
         <Switch>
             <Route path="/" exact component={App} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route path="/login" render={() => <Login refetch={refetch} />} />
+            <Route path="/signup" render={() => <Signup refetch={refetch} />} />
             <Redirect to="/" />
         </Switch>
     </Router>
 );
 
+const RootWithSession = withSession(Root);
+
 ReactDOM.render(
     <ApolloProvider client={client}>
-        <Root />
+        <RootWithSession />
     </ApolloProvider>, 
     document.getElementById('root')
 );
