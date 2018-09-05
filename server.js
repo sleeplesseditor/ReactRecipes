@@ -54,19 +54,19 @@ app.use(async (req, res, next) => {
     next();
 });
 
-//Create GraphiQL Application
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
-
 //Connect Schemas with GraphQL
 app.use('/graphql', bodyParser.json(), graphqlExpress(({ currentUser }) => ({
-        schema, 
-        context: {
-            Recipe,
-            User,
-            currentUser
-        }
-    }))
+    schema, 
+    context: {
+        Recipe,
+        User,
+        currentUser
+    }
+}))
 );
+
+//Create GraphiQL Application
+app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 
 const PORT = process.env.PORT || 4444;
 

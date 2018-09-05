@@ -24,7 +24,7 @@ exports.typeDefs = `
         getAllRecipes: [Recipe]
         getCurrentUser: User
         getRecipe(_id: ID!): Recipe
-        searchRecipes(searchTerm: String): [Recipes] 
+        searchRecipes(searchTerm: String): [Recipe] 
     }
 
     type Token {

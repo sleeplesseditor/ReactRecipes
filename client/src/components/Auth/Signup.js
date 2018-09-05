@@ -24,11 +24,11 @@ class Signup extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event, signupUser) => {
+  handleSubmit = (event, signUpUser) => {
     event.preventDefault();
-    signupUser().then(async ({ data }) => {
+    signUpUser().then(async ({ data }) => {
       // console.log(data);
-      localStorage.setItem("token", data.signupUser.token);
+      localStorage.setItem("token", data.signUpUser.token);
       await this.props.refetch();
       this.clearState();
       this.props.history.push("/");
@@ -52,11 +52,11 @@ class Signup extends React.Component {
           mutation={SIGNUP_USER}
           variables={{ username, email, password }}
         >
-          {(signupUser, { data, loading, error }) => {
+          {(signUpUser, { data, loading, error }) => {
             return (
               <form
                 className="form"
-                onSubmit={event => this.handleSubmit(event, signupUser)}
+                onSubmit={event => this.handleSubmit(event, signUpUser)}
               >
                 <input
                   type="text"
