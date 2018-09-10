@@ -53,5 +53,10 @@ exports.typeDefs = `
             email: String!,
             password: String!
         ): Token
+
+        likeRecipe(
+            _id: ID!, 
+            username: String!
+        ): Recipe
     }
 `; 
