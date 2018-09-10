@@ -25,6 +25,7 @@ exports.typeDefs = `
         getCurrentUser: User
         getRecipe(_id: ID!): Recipe
         searchRecipes(searchTerm: String): [Recipe] 
+        getUserRecipes(username: String!): [Recipe]
     }
 
     type Token {
@@ -39,6 +40,8 @@ exports.typeDefs = `
             instructions: String!, 
             username: String
         ): Recipe
+
+        deleteUserRecipe(_id: ID): Recipe
 
         signInUser(
             username: String!,

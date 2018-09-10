@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Mutation } from 'react-apollo';
-import { ADD_RECIPE, GET_ALL_RECIPES } from '../../queries';
+import { ADD_RECIPE, GET_ALL_RECIPES, GET_CURRENT_USER, GET_USER_RECIPES } from '../../queries';
 import Error from '../Error';
+import withAuth from '../withAuth';
 
 const initialState = {
     name: "",
@@ -66,6 +67,9 @@ class AddRecipe extends Component {
             <Mutation 
                 mutation={ADD_RECIPE} 
                 variables={{ name, category, description, instructions, username }}
+                refetchQueries={() => [
+                    { query: GET_USER_RECIPES, variables: { username } }
+                ]}
                 update={this.updateCache}
             >
                 {( addRecipe, { data, loading, error}) => {
@@ -121,4 +125,4 @@ class AddRecipe extends Component {
     }
 };
 
-export default withRouter(AddRecipe);
+export default withAuth(session => session && session.getCurrentUser)(withRouter(AddRecipe));
