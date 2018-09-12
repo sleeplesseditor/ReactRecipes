@@ -25,7 +25,6 @@ class Login extends React.Component {
   handleSubmit = (event, signInUser) => {
     event.preventDefault();
     signInUser().then(async ({ data }) => {
-      // console.log(data);
       localStorage.setItem("token", data.signInUser.token);
       await this.props.refetch();
       this.clearState();

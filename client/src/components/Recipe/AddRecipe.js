@@ -28,7 +28,7 @@ class AddRecipe extends Component {
 
     handleChange = event => {
         const { name, value } = event.target;
-        console.log(name, ":", value);
+        // console.log(name, ":", value);
         this.setState({
             [name]: value
         });
@@ -37,7 +37,6 @@ class AddRecipe extends Component {
     handleSubmit = (event, addRecipe) => {
         event.preventDefault();
         addRecipe().then(({ data }) => {
-            console.log(data);
             this.clearState();
             this.props.history.push("/");
         });
