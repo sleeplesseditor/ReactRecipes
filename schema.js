@@ -58,5 +58,10 @@ exports.typeDefs = `
             _id: ID!, 
             username: String!
         ): Recipe
+
+        unlikeRecipe(
+            _id: ID!, 
+            username: String!
+        ): Recipe
     }
 `; 
