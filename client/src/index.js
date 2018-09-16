@@ -21,8 +21,7 @@ import RecipePage from './components/Recipe/RecipePage';
 import withSession from './components/withSession';
 
 const client = new ApolloClient({
-    // uri: 'https://react-apollo-recipe.herokuapp.com/graphql',
-    uri: 'http://localhost:4444/graphql',
+    uri: 'https://secure-refuge-88326.herokuapp.com/graphql',
     fetchOptions: {
         credentials: 'include'
     },

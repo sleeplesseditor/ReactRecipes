@@ -67,7 +67,7 @@ app.use('/graphql', bodyParser.json(), graphqlExpress(({ currentUser }) => ({
 );
 
 //Create GraphiQL Application
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
+// app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 
 if(process.env.NODE_ENV ==='production'){
     app.use(express.static('client/build'));
