@@ -120,13 +120,6 @@ class AddRecipe extends Component {
                                     content={instructions}
                                     events={{ change: this.handleEditorChange }}
                                 />
-                                {/* <textarea 
-                                    type="text" 
-                                    name="instructions" 
-                                    placeholder="Add Instruction"
-                                    onChange={this.handleChange}
-                                    value={instructions} 
-                                /> */}
                                 <button 
                                     disabled={loading || this.validateForm}
                                     type="submit" 

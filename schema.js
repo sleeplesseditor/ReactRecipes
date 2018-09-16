@@ -65,5 +65,13 @@ exports.typeDefs = `
             _id: ID!, 
             username: String!
         ): Recipe
+
+        updateUserRecipe(
+            _id: ID!,
+            name: String!, 
+            imageUrl: String!,
+            description: String!, 
+            category: String!
+        ): Recipe
     }
 `; 
